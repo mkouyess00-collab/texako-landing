@@ -140,5 +140,15 @@
     host.addEventListener('pointerleave', () => { xTo(0); yTo(0); });
   });
 
+  // Noche de pólvora: las dos palabras se separan y el vídeo crece al cruzar la sección
+  if (!window.matchMedia('(max-width: 900px)').matches) {
+    const tl = gsap.timeline({ scrollTrigger: { trigger: '.polvora', start: 'top 85%', end: 'center 45%', scrub: true } });
+    tl.fromTo('.pw-l', { xPercent: 18 }, { xPercent: 0, ease: 'none' }, 0)
+      .fromTo('.pw-r', { xPercent: -18 }, { xPercent: 0, ease: 'none' }, 0)
+      .fromTo('.polvora-video', { scale: .82 }, { scale: 1, ease: 'none' }, 0);
+  } else {
+    gsap.fromTo('.polvora-video', { scale: .9 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.polvora-video', start: 'top bottom', end: 'center center', scrub: true } });
+  }
+
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();

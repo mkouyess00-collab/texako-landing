@@ -50,7 +50,7 @@ body {
   overflow-x: clip;
 }
 img, video, svg { display: block; max-width: 100%; }
-img { height: auto; }
+img, video { height: auto; }
 a { color: inherit; }
 h1, h2, h3, p, ul, figure, blockquote { margin: 0; }
 ul { padding: 0; list-style: none; }
@@ -660,4 +660,38 @@ main { position: relative; z-index: 2; background: var(--night); }
 @media (min-width: 701px) {
   .intro { grid-template-columns: minmax(0, 600px) minmax(0, min(560px, calc(78svh * 4 / 5))); justify-content: center; column-gap: clamp(48px, 6vw, 112px); }
   .intro-col, .intro-pic { grid-column: auto; max-width: none; }
+}
+
+/* ------------------------------------------------------------------ noche de pólvora */
+.polvora { position: relative; overflow: clip; padding: clamp(104px, 9vw, 144px) var(--m) var(--gap-sec); background: #0c0b0b; }
+.polvora-h {
+  display: flex; justify-content: space-between; gap: 24px;
+  font-family: var(--f-display); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(3.5rem, 1rem + 9vw, 11rem); line-height: .85; letter-spacing: -0.02em;
+  position: relative; z-index: 2; pointer-events: none;
+}
+.pw { display: block; will-change: transform; }
+.pw-r { color: var(--copper); }
+.polvora-stage {
+  display: grid; grid-template-columns: 1fr minmax(0, min(440px, calc(80svh * 9 / 16))) 1fr;
+  column-gap: clamp(24px, 4vw, 72px); align-items: end; margin-top: clamp(-80px, -5vw, -32px);
+}
+.polvora-video { margin: 0; position: relative; z-index: 1; will-change: transform; }
+.polvora-video video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; display: block; }
+.polvora-side { padding-bottom: 8px; }
+.polvora-side-l { justify-self: end; max-width: 320px; text-align: right; }
+.polvora-side-r { max-width: 320px; }
+.polvora-date { font-family: var(--f-display); font-weight: 700; text-transform: uppercase; font-size: clamp(2rem, 1rem + 2.4vw, 3.5rem); line-height: .95; }
+.polvora-txt { margin-top: 16px; color: var(--soft-light); }
+.polvora-label { color: var(--soft-light); margin-bottom: 8px; }
+.polvora-line li { font-family: var(--f-display); font-weight: 700; text-transform: uppercase; font-size: clamp(1.8rem, 1rem + 2vw, 3rem); line-height: 1.05; transition: color 200ms ease, transform 300ms var(--ease-out); }
+.polvora-line li:hover { color: var(--copper); transform: translateX(8px); }
+.polvora-link { display: inline-block; margin-top: 20px; }
+@media (max-width: 900px) {
+  .polvora-stage { grid-template-columns: 1fr; row-gap: 32px; margin-top: 32px; }
+  .polvora-video { width: min(78%, 420px); justify-self: center; order: -1; }
+  .polvora-side-l { justify-self: start; text-align: left; max-width: none; }
+  .polvora-side-r { max-width: none; }
+  .polvora-h { flex-direction: column; gap: 0; font-size: 18vw; }
+  .pw-r { align-self: flex-end; }
 }
