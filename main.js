@@ -77,6 +77,21 @@
     });
   }
 
+  /* ---------- Vídeos que solo se cargan al acercarse ---------- */
+  const lazy = document.querySelectorAll('video.lazy-video');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const v = e.target;
+        if (e.isIntersecting) {
+          if (!v.src) { v.src = v.dataset.src; }
+          if (!reduce) v.play().catch(() => {});
+        } else if (v.src) { v.pause(); }
+      });
+    }, { rootMargin: '300px 0px' });
+    lazy.forEach((v) => io.observe(v));
+  } else { lazy.forEach((v) => { v.src = v.dataset.src; }); }
+
   /* ---------- Movimiento ---------- */
   if (!window.gsap || !window.ScrollTrigger) return; // sin librerías, la página queda completa y quieta
   document.documentElement.classList.add('js');

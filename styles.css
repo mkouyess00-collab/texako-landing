@@ -61,6 +61,8 @@ ul { padding: 0; list-style: none; }
 .hero {
   position: relative;
   min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   background: var(--bg);
   color: var(--ink);
@@ -179,13 +181,13 @@ body[data-phase="tarde"] .hero-glow { opacity: .35; }
 .dia-estado strong { font-family: var(--f-display); font-weight: 700; font-size: 1.5em; margin-right: 6px; font-variant-numeric: tabular-nums; }
 
 .monument {
-  position: absolute;
+  position: relative;
   z-index: 2;
-  left: -9vw;
-  bottom: -0.085em;
+  margin: auto 0 -0.085em -9vw;
+  padding-top: 32px;
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: clamp(220px, 39vw, 800px);
+  font-size: clamp(160px, min(39vw, 58svh), 800px);
   line-height: .8;
   letter-spacing: -0.035em;
   white-space: nowrap;
@@ -453,8 +455,11 @@ main { position: relative; z-index: 2; background: var(--night); }
   .btn { margin-top: 20px; padding: 14px 18px; }
   .dia { margin-top: 28px; }
   .dia-estado { font-size: 15px; }
+  .hero { display: block; }
   .monument {
     font-size: 58vw;
+    position: absolute;
+    margin: 0; padding: 0;
     left: auto; bottom: auto;
     top: -2svh;
     left: calc(100% + 8vw);
@@ -603,7 +608,27 @@ main { position: relative; z-index: 2; background: var(--night); }
 .dj-ortiz img { aspect-ratio: 5 / 4; object-position: 50% 15%; }
 .dj-mas { margin-top: 18px; font-weight: 500; }
 .anio-pic { margin: 0 0 56px; }
-.anio-pic img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 40%; }
+.anio-pic img, .anio-pic video { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 40%; background: var(--night); }
 .djs-lista { row-gap: 48px; }
 .djs-lista .dj-solo { grid-column: span 4; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; }
-@media (max-width: 700px) { .anio-pic img { aspect-ratio: 4 / 3; } }
+@media (max-width: 700px) { .anio-pic img, .anio-pic video { aspect-ratio: 4 / 3; } }
+
+/* ------------------------------------------------------------------ sommar */
+.sommar {
+  display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: center;
+  padding: clamp(96px, 10vw, 160px) var(--m);
+  background: var(--copper); color: var(--copper-ink);
+}
+.sommar-video { grid-column: 1 / span 4; }
+.sommar-video video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--night); }
+.sommar-txt { grid-column: 6 / span 7; }
+.sommar .h-big { font-size: clamp(4rem, 1rem + 10vw, 12rem); line-height: .85; }
+.sommar-lead { margin-top: 32px; font-size: var(--step-lead); line-height: 1.35; font-weight: 500; max-width: 32ch; }
+.sommar .datos .k { color: var(--copper-ink); opacity: .75; }
+.sommar .btn { margin-top: 36px; background: var(--copper-ink); color: var(--ink-light); }
+.sommar .btn:hover { background: #2c2a27; }
+@media (max-width: 700px) {
+  .sommar { display: flex; flex-direction: column-reverse; gap: 48px; padding: 96px var(--m); align-items: stretch; }
+  .sommar-video { width: 78%; }
+  .sommar .h-big { font-size: 22vw; }
+}
