@@ -2,46 +2,12 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const body = document.body;
 
-  /* ---------- El día de Texako: el control lleva la página de la mañana a la noche ---------- */
-  const range = document.getElementById('hora');
-  const outHora = document.querySelector('[data-hora]');
-  const outPlan = document.querySelector('[data-plan]');
-  const grupos = document.querySelectorAll('.grupo');
-  const esFinde = [0, 6].includes(new Date().getDay());
-
-  const fmt = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
-
-  function fase(m) {
-    if (m < 13 * 60) return 'manana';
-    if (m < 18 * 60) return 'tarde';
-    return 'noche';
-  }
-  function plan(m) {
-    if (m < 13 * 60) return esFinde ? 'Los desayunos son de lunes a viernes; hoy, café en la barra.' : 'Café y tostada: es hora de desayunos.';
-    if (m < 16 * 60) return esFinde ? 'Caña fría y vino en la terraza.' : 'Últimos desayunos o la primera caña.';
-    if (m < 18 * 60) return 'Caña fría y vino, a la sombra de la terraza.';
-    return 'Tarde de tardeo: DJ desde las 18:00, combinados y la terraza llena.';
-  }
-  function grupoActivo(m) {
-    if (m < 16 * 60 && !esFinde) return 'manana';
-    if (m < 18 * 60) return 'tarde';
-    return 'noche';
-  }
-  function aplicar(m) {
-    outHora.textContent = fmt(m);
-    outPlan.textContent = plan(m);
-    body.dataset.phase = fase(m);
-    const g = grupoActivo(m);
-    grupos.forEach((el) => el.classList.toggle('ahora', el.dataset.grupo === g));
-    range.setAttribute('aria-valuetext', `${fmt(m)}. ${plan(m)}`);
-  }
-  // Arranca en la hora real (redondeada a 15 min), dentro del horario 9:00–21:30.
-  const now = new Date();
-  let mins = Math.round((now.getHours() * 60 + now.getMinutes()) / 15) * 15;
-  mins = Math.min(Math.max(mins, 540), 1290);
-  range.value = mins;
-  aplicar(mins);
-  range.addEventListener('input', () => aplicar(+range.value));
+  /* ---------- La carta marca con "ahora" lo que toca a esta hora ---------- */
+  const ahora = new Date();
+  const m = ahora.getHours() * 60 + ahora.getMinutes();
+  const finde = [0, 6].includes(ahora.getDay());
+  const toca = (m < 16 * 60 && !finde) ? 'manana' : (m < 18 * 60 ? 'tarde' : 'noche');
+  document.querySelectorAll('.grupo').forEach((el) => el.classList.toggle('ahora', el.dataset.grupo === toca));
 
   /* ---------- Menú móvil ---------- */
   const btnMenu = document.querySelector('.nav-menu');
