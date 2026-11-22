@@ -592,3 +592,18 @@ main { position: relative; z-index: 2; background: var(--night); }
 .nav { align-items: center; }
 .pie-logo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; mix-blend-mode: multiply; }
 @media (max-width: 700px) { .logo { width: 44px; height: 44px; } .pie-logo { width: 72px; height: 72px; } }
+
+/* ------------------------------------------------------------------ reseña + dj invitado */
+.resena { margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.resena p { font-size: var(--step-lead); font-weight: 500; }
+.btn-dark { margin-top: 0; background: var(--copper-ink); color: var(--ink-light); }
+.btn-dark:hover { background: #2c2a27; }
+.djs-lista .dj { grid-column: span 4; }
+.djs-lista .dj-solo { grid-column: span 4; }
+.dj-ortiz img { aspect-ratio: 5 / 4; object-position: 50% 15%; }
+.dj-mas { margin-top: 18px; font-weight: 500; }
+.anio-pic { margin: 0 0 56px; }
+.anio-pic img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 40%; }
+.djs-lista { row-gap: 48px; }
+.djs-lista .dj-solo { grid-column: span 4; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; }
+@media (max-width: 700px) { .anio-pic img { aspect-ratio: 4 / 3; } }
