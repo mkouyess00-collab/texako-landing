@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="img/logo-texako.jpg">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body data-phase="noche">
 
@@ -63,8 +63,8 @@
       <p data-rise><a class="link" href="#tardeos">Conoce los Tardeos</a></p>
     </div>
     <figure class="intro-pic" data-open>
-      <img src="img/fachada-noche.webp" width="768" height="1024" alt="La fachada de Texako de noche, con el letrero iluminado, la estantería de botellas tras el cristal y la terraza" loading="lazy" decoding="async">
-      <figcaption>La fachada de noche, con el letrero encendido.</figcaption>
+      <video class="lazy-video" data-src="assets/local-texako.mp4" poster="img/fachada-noche.webp" muted loop playsinline preload="none" width="720" height="1280" aria-label="Vídeo del local de Texako de noche: el letrero encendido, la terraza y los cócteles"></video>
+      <figcaption>El local de Texako, de noche.</figcaption>
     </figure>
   </section>
 
@@ -87,7 +87,7 @@
     </div>
 
     <div class="djs">
-      <h3 class="h-sec" data-rise>DJs que han pasado por Texako</h3>
+      <h3 class="h-sec" data-rise>Artistas y DJs que han pasado por Texako</h3>
       <ul class="djs-lista">
         <li class="dj" data-rise>
           <img src="img/ig/dj-exojo.jpg" width="640" height="511" alt="DJ Exojo con el micrófono, con el logo de Texako proyectado detrás" loading="lazy" decoding="async">
@@ -103,6 +103,16 @@
           <img src="img/ig/toledo-3.jpg" width="1440" height="810" alt="DJ Toledo con el micrófono en alto ante la terraza de Texako llena de gente" loading="lazy" decoding="async">
           <p class="dj-n">DJ Toledo</p>
           <p class="dj-d">Llenó la terraza en el Mayo Manchego, con su Tour Dixfruta.</p>
+        </li>
+        <li class="dj" data-rise>
+          <img src="img/sommar/DbGhQHAMVke.jpg" width="640" height="640" alt="Retrato de Benji Cruz con gafas de sol sobre fondo rojo" loading="lazy" decoding="async">
+          <p class="dj-n">Benji Cruz</p>
+          <p class="dj-d">Invitado en la noche de pólvora de la Feria 2026, en Sommar.</p>
+        </li>
+        <li class="dj" data-rise>
+          <img src="img/sommar/DbGsWBMudSW.jpg" width="640" height="640" alt="Enygma con su máscara blanca" loading="lazy" decoding="async">
+          <p class="dj-n">Enygma</p>
+          <p class="dj-d">El DJ de la máscara, cabeza de cartel en Sommar para abrir la Feria.</p>
         </li>
         <li class="dj dj-solo" data-rise>
           <p class="dj-n">DJ Chus Escribano</p>
@@ -128,15 +138,21 @@
 
   <section class="sommar" id="sommar" aria-labelledby="sommar-t">
     <div class="sommar-video" data-open>
-      <video class="lazy-video" data-src="assets/sommar.mp4" poster="img/fachada-noche.webp" muted loop playsinline preload="none" width="720" height="1280" aria-label="Vídeo promocional de Sommar: terraza de noche, cócteles y fiesta"></video>
+      <video class="lazy-video" data-src="assets/sommar-verano.mp4" poster="img/sommar/DcO4KsAsaTx.jpg" muted loop playsinline preload="none" width="720" height="1280" aria-label="Vídeo de las noches de verano en Sommar: pista llena, DJ y luces"></video>
     </div>
     <div class="sommar-txt">
       <h2 id="sommar-t" class="h-big" data-rise><span>Sommar</span></h2>
-      <p class="sommar-lead" data-rise>Un espacio lleno de noches de verano. Aquí es donde Texako monta sus fiestas cuando aprieta el calor.</p>
+      <p class="sommar-lead" data-rise>Sommar by Texako: un espacio lleno de noches de verano, donde Texako monta sus fiestas cuando aprieta el calor.</p>
+      <p class="sommar-sub" data-rise>Allí se celebró la noche de pólvora de la Feria 2026, con Enygma, Benji Cruz y DJ Miguel Ortiz a los platos.</p>
       <ul class="datos">
         <li data-rise><span class="k">Dónde</span><span class="n">Pedro Muñoz</span></li>
         <li data-rise><span class="k">Abre</span><span class="n">Viernes, sábados y festivos</span></li>
         <li data-rise><span class="k">Temporada</span><span class="n">Noches de verano</span></li>
+      </ul>
+      <ul class="sommar-fotos">
+        <li data-open><img src="img/sommar/DcO4KsAsaTx.jpg" width="640" height="640" alt="Sommar por dentro: terraza cubierta con palmeras, barra iluminada y gente" loading="lazy" decoding="async"></li>
+        <li data-open><img src="img/sommar/DcO4HO4M5mj.jpg" width="640" height="640" alt="La cabina de Sommar Havana Club con luces rojas" loading="lazy" decoding="async"></li>
+        <li data-open><img src="img/sommar/DcO8UwFObrl.jpg" width="640" height="640" alt="Enygma pinchando en Sommar ante la pista llena" loading="lazy" decoding="async"></li>
       </ul>
       <a class="btn" data-rise href="https://www.instagram.com/sommar.pm/" target="_blank" rel="noopener">Ver Sommar en Instagram</a>
     </div>
@@ -258,6 +274,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="main.js"></script>
+<script src="main.js?v=7"></script>
 </body>
 </html>

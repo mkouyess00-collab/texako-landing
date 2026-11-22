@@ -25,7 +25,7 @@
   --step-head: clamp(2.75rem, 1.2rem + 5vw, 6rem);
 
   --m: clamp(20px, 2vw, 32px);
-  --gap-sec: clamp(120px, 14vw, 200px);
+  --gap-sec: clamp(72px, 7vw, 112px);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -229,7 +229,7 @@ body[data-phase="tarde"] .hero-glow { opacity: .35; }
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 24px;
-  padding: var(--gap-sec) var(--m) 0;
+  padding: var(--gap-sec) var(--m) var(--gap-sec);
   align-items: start;
 }
 .intro-col { grid-column: 2 / span 4; display: grid; gap: 1.1em; max-width: 380px; }
@@ -242,8 +242,7 @@ figcaption { margin-top: 10px; font-size: var(--step-small); color: var(--soft-l
 
 /* ------------------------------------------------------------------ tardeos */
 .tardeos {
-  margin-top: var(--gap-sec);
-  padding: clamp(96px, 10vw, 160px) var(--m);
+    padding: clamp(64px, 6vw, 104px) var(--m);
   background: var(--night-2);
 }
 .tardeos .h-big { font-size: clamp(3.5rem, 1rem + 9vw, 10rem); line-height: .86; }
@@ -266,7 +265,7 @@ figcaption { margin-top: 10px; font-size: var(--step-small); color: var(--soft-l
 .tardeos-pic img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
 .tardeos-cartel { grid-column: 8 / span 4; margin-top: 64px; }
 .tardeos-cartel img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
-.anio { margin-top: clamp(96px, 10vw, 160px); }
+.anio { margin-top: clamp(64px, 6vw, 104px); }
 .anio .h-sec { margin-bottom: 32px; }
 .anio-lista li {
   display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
@@ -283,8 +282,7 @@ figcaption { margin-top: 10px; font-size: var(--step-small); color: var(--soft-l
 
 /* ------------------------------------------------------------------ carta */
 .carta {
-  margin-top: var(--gap-sec);
-  padding: clamp(96px, 10vw, 160px) var(--m);
+    padding: clamp(64px, 6vw, 104px) var(--m);
   background: var(--cream);
   color: var(--ink-dark);
 }
@@ -354,8 +352,7 @@ figcaption { margin-top: 10px; font-size: var(--step-small); color: var(--soft-l
 
 /* ------------------------------------------------------------------ cita */
 .cita {
-  margin-top: var(--gap-sec);
-  padding: 140px var(--m);
+  padding: clamp(72px, 7vw, 112px) var(--m);
   background: var(--copper);
   color: var(--copper-ink);
 }
@@ -421,14 +418,15 @@ main { position: relative; z-index: 2; background: var(--night); }
 .legal { grid-row: 4; margin-top: 20px; font-size: var(--step-small); color: var(--soft-dark); }
 
 /* ------------------------------------------------------------------ motion (progressive) */
-.js [data-rise] { opacity: 0; transform: translateY(24px); }
-.js [data-open] img { clip-path: inset(100% 0 0 0); }
-.js .fila > * { display: inline-block; transform: translateY(40%); opacity: 0; }
+.reveal [data-rise] { opacity: 0; transform: translateY(24px); transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-expo); transition-delay: var(--d, 0ms); }
+.reveal [data-rise].in { opacity: 1; transform: none; }
+.reveal [data-open] img, .reveal [data-open] video { clip-path: inset(100% 0 0 0); transform: scale(1.12); transition: clip-path 1200ms var(--ease-in-out), transform 1600ms var(--ease-out); }
+.reveal [data-open].in img, .reveal [data-open].in video { clip-path: inset(0 0 0 0); transform: none; }
+.reveal .fila > * { display: inline-block; transform: translateY(40%); opacity: 0; transition: opacity 800ms var(--ease-out), transform 900ms var(--ease-expo); }
+.reveal .filas.in .fila > * { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .js [data-rise] { opacity: 1; transform: none; }
-  .js [data-open] img { clip-path: none; }
-  .js .fila > * { opacity: 1; transform: none; }
+  .reveal [data-rise], .reveal [data-open] img, .reveal [data-open] video, .reveal .fila > * { opacity: 1; transform: none; clip-path: none; }
   .hero-glow { display: none; }
   * { transition-duration: 1ms !important; }
 }
@@ -515,7 +513,7 @@ main { position: relative; z-index: 2; background: var(--night); }
 }
 
 /* ------------------------------------------------------------------ djs */
-.djs { margin-top: clamp(96px, 10vw, 160px); }
+.djs { margin-top: clamp(64px, 6vw, 104px); }
 .djs .h-sec { margin-bottom: 40px; }
 .djs-lista { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: end; }
 .dj { grid-column: 1 / span 6; }
@@ -530,7 +528,7 @@ main { position: relative; z-index: 2; background: var(--night); }
 /* ------------------------------------------------------------------ noches especiales */
 .especial {
   display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px;
-  padding: clamp(96px, 10vw, 160px) var(--m);
+  padding: clamp(64px, 6vw, 104px) var(--m);
   background: var(--night); align-items: center;
 }
 .especial-txt { grid-column: 1 / span 6; }
@@ -550,17 +548,17 @@ main { position: relative; z-index: 2; background: var(--night); }
 .especial-video video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--night-2); }
 
 /* ------------------------------------------------------------------ fiestas del año */
-.anio-sec { padding: clamp(96px, 10vw, 160px) var(--m); background: var(--night-2); }
+.anio-sec { padding: clamp(64px, 6vw, 104px) var(--m); background: var(--night-2); }
 .anio-sec .h-sec { margin-bottom: 32px; }
 
 /* ------------------------------------------------------------------ clientes */
-.clientes { padding: var(--gap-sec) 0 0; overflow: clip; }
+.clientes { padding: var(--gap-sec) 0 var(--gap-sec); overflow: clip; }
 .clientes-head { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; padding: 0 var(--m); align-items: end; }
 .clientes .h-big { grid-column: 1 / span 7; font-size: clamp(3.5rem, 1rem + 8vw, 9rem); line-height: .86; }
 .clientes .h-big span { display: block; }
 .clientes .h-big span:last-child { padding-left: 6vw; }
 .clientes-lead { grid-column: 9 / span 4; font-size: var(--step-lead); line-height: 1.35; font-weight: 500; }
-.cinta { margin-top: 72px; }
+.cinta { margin-top: 48px; }
 .cinta-fila { display: flex; gap: 16px; width: max-content; animation: cinta 60s linear infinite; }
 .cinta:hover .cinta-fila { animation-play-state: paused; }
 .cinta-fila li { flex: none; width: clamp(260px, 30vw, 440px); }
@@ -616,7 +614,7 @@ main { position: relative; z-index: 2; background: var(--night); }
 /* ------------------------------------------------------------------ sommar */
 .sommar {
   display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: center;
-  padding: clamp(96px, 10vw, 160px) var(--m);
+  padding: clamp(64px, 6vw, 104px) var(--m);
   background: var(--copper); color: var(--copper-ink);
 }
 .sommar-video { grid-column: 1 / span 4; }
@@ -632,3 +630,13 @@ main { position: relative; z-index: 2; background: var(--night); }
   .sommar-video { width: 78%; }
   .sommar .h-big { font-size: 22vw; }
 }
+
+/* ------------------------------------------------------------------ sommar: fotos + artistas */
+.sommar-sub { margin-top: 14px; font-weight: 500; max-width: 40ch; }
+.sommar-fotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+.sommar-fotos img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.djs-lista .dj img { aspect-ratio: 5 / 4; object-fit: cover; object-position: 50% 25%; }
+.intro-pic video { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--night-2); }
+@media (max-width: 700px) { .sommar-fotos { gap: 8px; } }
+
+@media (max-width: 700px) { .djs { margin-top: 112px; } }

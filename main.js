@@ -92,9 +92,32 @@
     lazy.forEach((v) => io.observe(v));
   } else { lazy.forEach((v) => { v.src = v.dataset.src; }); }
 
+  /* ---------- Apariciones al hacer scroll (IntersectionObserver: nunca deja nada oculto) ---------- */
+  const revealEls = [...document.querySelectorAll('[data-rise], [data-open], .filas')];
+  document.querySelectorAll('section, header').forEach((sec) => {
+    sec.querySelectorAll('[data-rise]').forEach((el, i) => el.style.setProperty('--d', Math.min(i, 6) * 80 + 'ms'));
+  });
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach((el) => el.classList.add('in'));
+  } else {
+    document.documentElement.classList.add('reveal');
+    const rio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    revealEls.forEach((el) => rio.observe(el));
+    // Red de seguridad: lo que ya esté por encima del borde inferior de la pantalla se muestra siempre
+    const sweep = () => revealEls.forEach((el) => {
+      if (!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+    });
+    addEventListener('load', sweep);
+    let sweepT = 0;
+    addEventListener('scroll', () => { const now = Date.now(); if (now - sweepT > 120) { sweepT = now; sweep(); } }, { passive: true });
+    setTimeout(sweep, 400);
+  }
+
   /* ---------- Movimiento ---------- */
   if (!window.gsap || !window.ScrollTrigger) return; // sin librerías, la página queda completa y quieta
-  document.documentElement.classList.add('js');
+  
   gsap.registerPlugin(ScrollTrigger);
 
   if (reduce) { ScrollTrigger.refresh(); return; }
@@ -116,41 +139,11 @@
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
   });
 
-  // Hero: frase, botón y control entran escalonados
-  gsap.to('.hero [data-rise]', { opacity: 1, y: 0, duration: .9, ease, stagger: .09, delay: .1 });
-
-  // Entradas por sección: título, luego texto, luego imagen
-  document.querySelectorAll('main section').forEach((sec) => {
-    const rises = sec.querySelectorAll('[data-rise]');
-    if (rises.length) {
-      gsap.to(rises, {
-        opacity: 1, y: 0, duration: .9, ease, stagger: .08,
-        scrollTrigger: { trigger: sec, start: 'top 82%', once: true }
-      });
-    }
-  });
-
-  // Fotos: se abren con una cortina desde abajo y se asientan con una escala lenta
-  document.querySelectorAll('[data-open]').forEach((fig) => {
-    const img = fig.querySelector('img');
-    gsap.timeline({ scrollTrigger: { trigger: fig, start: 'top 88%', once: true } })
-      .to(img, { clipPath: 'inset(0% 0 0 0)', duration: 1.3, ease: 'power4.inOut' })
-      .from(img, { scale: 1.18, duration: 1.8, ease: 'power3.out' }, 0);
-  });
-
   // Paralaje suave en la galería
   document.querySelectorAll('.pares figure').forEach((fig, i) => {
     gsap.to(fig, {
       yPercent: i % 2 ? -10 : -4, ease: 'none',
       scrollTrigger: { trigger: fig, start: 'top bottom', end: 'bottom top', scrub: true }
-    });
-  });
-
-  // Carta: las filas llegan una a una
-  document.querySelectorAll('.grupo').forEach((g) => {
-    gsap.from(g.querySelectorAll('li, h3'), {
-      opacity: 0, y: 18, duration: .7, ease, stagger: .06,
-      scrollTrigger: { trigger: g, start: 'top 85%', once: true }
     });
   });
 
@@ -160,12 +153,6 @@
       letterSpacing: '-0.02em', ease: 'none',
       scrollTrigger: { trigger: l, start: 'top bottom', end: 'top 45%', scrub: true }
     });
-  });
-
-  // Dónde: cada fila sube dentro de su banda
-  gsap.to('.fila > *', {
-    y: 0, yPercent: 0, opacity: 1, duration: .9, ease, stagger: .1,
-    scrollTrigger: { trigger: '.filas', start: 'top 80%', once: true }
   });
 
   // Pie: el nombre crece de 0.94 a 1 mientras se descubre
