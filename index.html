@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Texako Gastro Bar · Pedro Muñoz</title>
+<meta name="description" content="Texako, gastro bar en la Avenida de la Constitución 25 de Pedro Muñoz. Desayunos de lunes a viernes, cervezas, vinos, combinados y Los Tardeos de Texako con DJ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="img/logo-texako.jpg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-phase="noche">
+
+<header class="hero" id="inicio">
+  <video class="hero-glow" src="assets/llama.mp4" poster="data:image/gif;base64,R0lGODlhAQABAIAAABUUEwAAACwAAAAAAQABAAACAkQBADs=" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+
+  <nav class="nav" aria-label="Principal">
+    <a class="wordmark" href="#inicio"><img class="logo" src="img/logo-texako.jpg" width="640" height="640" alt=""><span>Texako</span></a>
+    <div class="nav-links">
+      <a href="#tardeos">Tardeos</a>
+      <a href="#especial">Noches</a>
+      <a href="#carta">La carta</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#donde">Dónde</a>
+    </div>
+    <button class="nav-menu" type="button" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+  </nav>
+  <div class="menu-movil" id="menu-movil" hidden>
+    <a href="#tardeos">Tardeos</a>
+    <a href="#carta">La carta</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#donde">Dónde</a>
+  </div>
+
+  <div class="hero-copy">
+    <p class="hero-lead" data-rise>Gastro bar en Pedro Muñoz. Desayunos entre semana, cañas y vinos a mediodía, y por la tarde, los Tardeos con DJ.</p>
+    <a class="btn" data-rise href="https://www.google.com/maps/dir/?api=1&amp;destination=Texako%2C+Av.+de+la+Constituci%C3%B3n+25%2C+13620+Pedro+Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar</a>
+
+    <div class="dia" data-rise>
+      <input id="hora" aria-label="Hora del día" type="range" min="540" max="1290" step="15" value="1170" aria-describedby="dia-estado">
+      <p class="dia-estado" id="dia-estado" aria-live="polite"><strong data-hora>19:30</strong> <span data-plan>Tarde de tardeo: DJ, combinados y la terraza llena.</span></p>
+      <p class="dia-label">Arrastra para mover el día y ver qué toca en Texako.</p>
+    </div>
+  </div>
+
+  <h1 class="monument" aria-label="Texako">
+    <span class="monument-inner" aria-hidden="true">TEXAK<svg class="o-glass" viewBox="0 0 100 100" focusable="false"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="13"/><path d="M30 33h40L54 52v15h9v6H37v-6h9V52z" fill="currentColor"/></svg></span>
+  </h1>
+</header>
+
+<main>
+
+  <section class="intro" aria-labelledby="intro-t">
+    <div class="intro-col">
+      <h2 id="intro-t" class="h-sec" data-rise>Gastronomía y buena música</h2>
+      <p class="first" data-rise>Texako es un gastro bar en la Avenida de la Constitución, 25, con la terraza a pie de calle y la estantería de botellas a la vista desde la acera.</p>
+      <p data-rise>Por la mañana, desayunos de lunes a viernes, de 9 a 16 h. A mediodía, cerveza fría y vino. Por la tarde llegan los Tardeos: DJ, combinados y un ambiente que empieza tranquilo y nadie sabe cómo termina.</p>
+      <p data-rise>Detrás de la barra hay un equipo que se acuerda de cómo tomas el café.</p>
+      <p data-rise><a class="link" href="#tardeos">Conoce los Tardeos</a></p>
+    </div>
+    <figure class="intro-pic" data-open>
+      <img src="img/fachada-noche.webp" width="768" height="1024" alt="La fachada de Texako de noche, con el letrero iluminado, la estantería de botellas tras el cristal y la terraza" loading="lazy" decoding="async">
+      <figcaption>La fachada de noche, con el letrero encendido.</figcaption>
+    </figure>
+  </section>
+
+  <section class="tardeos" id="tardeos" aria-labelledby="tardeos-t">
+    <h2 id="tardeos-t" class="h-big" data-rise><span>Los Tardeos</span> <span>de Texako</span></h2>
+    <div class="tardeos-grid">
+      <div class="tardeos-txt">
+        <p class="tardeos-lead" data-rise>Tardes con DJ desde las 18:00 que empiezan tranquilas y acaban como acaban. Texako vuelve a ser el punto de encuentro.</p>
+        <ul class="datos">
+          <li data-rise><span class="k">Desde</span><span class="n">las 18:00</span></li>
+          <li data-rise><span class="k">Música</span><span class="n">Indie, pop, rock, comercial, remember y house</span></li>
+          <li data-rise><span class="k">Para comer</span><span class="n">Catering en todos los tardeos</span></li>
+          <li data-rise><span class="k">Fechas</span><span class="n"><a class="link" href="https://www.instagram.com/texako.pm/" target="_blank" rel="noopener">Se anuncian en Instagram</a></span></li>
+        </ul>
+      </div>
+      <figure class="tardeos-pic" data-open>
+        <img src="img/clientes/s7.jpg" width="1100" height="880" alt="DJ Exojo a los platos en Texako, con el público al fondo bajo luces de colores" loading="lazy" decoding="async">
+        <figcaption>DJ Exojo a los platos.</figcaption>
+      </figure>
+    </div>
+
+    <div class="djs">
+      <h3 class="h-sec" data-rise>DJs que han pasado por Texako</h3>
+      <ul class="djs-lista">
+        <li class="dj" data-rise>
+          <img src="img/ig/dj-exojo.jpg" width="640" height="511" alt="DJ Exojo con el micrófono, con el logo de Texako proyectado detrás" loading="lazy" decoding="async">
+          <p class="dj-n">DJ Exojo</p>
+          <p class="dj-d">Sesiones de los Tardeos, con su sello en cada foto de la noche.</p>
+        </li>
+        <li class="dj dj-solo" data-rise>
+          <p class="dj-n">DJ Chus Escribano</p>
+          <p class="dj-d">Abrió la nueva temporada de los Tardeos tras el verano.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="especial" id="especial" aria-labelledby="especial-t">
+    <div class="especial-txt">
+      <h2 id="especial-t" class="h-big" data-rise><span>Noches</span> <span>especiales</span></h2>
+      <p class="especial-lead" data-rise>Además de los tardeos, Texako organiza noches con artistas invitados: música en directo, DJ en cabina y medio pueblo con la mano en alto.</p>
+      <p class="especial-sub" data-rise>Los próximos invitados se anuncian en <a class="link" href="https://www.instagram.com/texako.pm/" target="_blank" rel="noopener">Instagram</a>.</p>
+      <button class="play" type="button" aria-pressed="false" data-rise>Pausar vídeo</button>
+    </div>
+    <div class="especial-video" data-open>
+      <video src="assets/reel-fiesta.mp4" poster="img/clientes/s7.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Vídeo de una noche especial de Texako: guitarrista en directo, DJ en el escenario y público"></video>
+    </div>
+  </section>
+
+  <section class="anio-sec" aria-labelledby="anio-t">
+    <h2 id="anio-t" class="h-sec" data-rise>Fiestas durante el año</h2>
+    <ul class="anio-lista">
+      <li data-rise><span class="w">Carnaval</span><span class="d">Fiesta de Carnaval en Texako</span></li>
+      <li data-rise><span class="w">Los Mayos</span><span class="d">La fiesta de mayo de La Mancha</span></li>
+      <li data-rise><span class="w">Feria</span><span class="d">Feria de Pedro Muñoz</span></li>
+      <li data-rise><span class="w">Cata maridaje</span><span class="d">Vino y cocina en la misma mesa</span></li>
+    </ul>
+  </section>
+
+  <section class="carta" id="carta" aria-labelledby="carta-t">
+    <h2 id="carta-t" class="h-big" data-rise><span>Del café</span> <span>al último combinado</span></h2>
+    <div class="carta-grid">
+      <div class="carta-bio">
+        <p class="bio-l" data-rise>Combinados.</p>
+        <p class="bio-l" data-rise>Cervezas.</p>
+        <p class="bio-l" data-rise>Vinos.</p>
+      </div>
+      <div class="carta-tabla">
+        <div class="grupo" data-grupo="manana">
+          <h3>Desayunos</h3><p class="grupo-sub">lunes a viernes, 9 a 16 h</p>
+          <ul>
+            <li><span class="k">Café</span><span class="n">Solo, cortado o con leche</span><span class="v">desde las 9</span></li>
+            <li><span class="k">Tostadas</span><span class="n">Para empezar el día</span><span class="v">hasta las 16</span></li>
+          </ul>
+        </div>
+        <div class="grupo" data-grupo="tarde">
+          <h3>Barra</h3><p class="grupo-sub">cervezas y vinos</p>
+          <ul>
+            <li><span class="k">Cervezas</span><span class="n">Caña de grifo, en copa fría</span><span class="v">todo el día</span></li>
+            <li><span class="k">Vinos</span><span class="n">Tinto y blanco por copas</span><span class="v">todo el día</span></li>
+          </ul>
+        </div>
+        <div class="grupo" data-grupo="noche">
+          <h3>Combinados</h3><p class="grupo-sub">la especialidad de la tarde</p>
+          <ul>
+            <li><span class="k">Combinados</span><span class="n">Elige botella de la estantería</span><span class="v">tarde</span></li>
+            <li><span class="k">Gin-tonic</span><span class="n">Con la ginebra que quieras</span><span class="v">tarde</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="clientes" id="clientes" aria-labelledby="clientes-t">
+    <div class="clientes-head">
+      <h2 id="clientes-t" class="h-big" data-rise><span>Nuestros</span> <span>clientes</span></h2>
+      <p class="clientes-lead" data-rise>«Así de bien lo pasamos el finde pasado.» Caras de un tardeo cualquiera en Texako, con el equipo de la barra incluido.</p>
+    </div>
+    <div class="cinta" aria-label="Fotos de clientes y equipo de Texako">
+      <ul class="cinta-fila">
+        <li><img src="img/clientes/s1.jpg" width="1100" height="880" alt="Tres amigos sonriendo en un tardeo" loading="lazy" decoding="async"></li>
+        <li><img src="img/clientes/s2.jpg" width="1100" height="880" alt="Cuatro amigas posando juntas en la barra" loading="lazy" decoding="async"></li>
+        <li><img src="img/clientes/s3.jpg" width="1100" height="880" alt="Tres amigas con orejas de gato bajo luz verde" loading="lazy" decoding="async"></li>
+        <li><img src="img/clientes/s4.jpg" width="1100" height="880" alt="Cuatro amigos abrazados y sonriendo" loading="lazy" decoding="async"></li>
+        <li><img src="img/clientes/s5.jpg" width="1100" height="880" alt="Una pareja sonriendo en pleno tardeo" loading="lazy" decoding="async"></li>
+        <li><img src="img/clientes/s6.jpg" width="1100" height="880" alt="Tres amigos posando en el bar" loading="lazy" decoding="async"></li>
+        <li><img src="img/clientes/s8.jpg" width="1100" height="880" alt="Una clienta riendo con su bebida" loading="lazy" decoding="async"></li>
+        <li><img src="img/clientes/s9.jpg" width="1100" height="880" alt="Camarera sonriendo detrás de la barra, con las botellas al fondo" loading="lazy" decoding="async"></li>
+        <li><img src="img/equipo-barra.webp" width="1021" height="1024" alt="El equipo de Texako detrás de la barra" loading="lazy" decoding="async"></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cita" aria-labelledby="cita-t">
+    <h2 id="cita-t" class="h-sec" data-rise>5,0 en Google Maps</h2>
+    <blockquote>
+      <p class="cita-l" data-rise><span>«Se</span><span>está</span><span>súper</span></p>
+      <p class="cita-l" data-rise><span>bien,</span><span>es</span><span>agradable»</span></p>
+      <footer class="cita-a" data-rise><span>Jose Alberto Diaz Fernandez</span><span>Local Guide</span><span>Reseña en Google Maps</span></footer>
+    </blockquote>
+  </section>
+
+  <section class="donde" id="donde" aria-labelledby="donde-t">
+    <h2 id="donde-t" class="h-sec donde-h" data-rise>Dónde estamos</h2>
+    <ul class="filas">
+      <li class="fila"><span>Texako Gastro Bar</span></li>
+      <li class="fila"><a href="https://www.google.com/maps/search/?api=1&amp;query=Texako%2C+Av.+de+la+Constituci%C3%B3n+25%2C+Pedro+Mu%C3%B1oz" target="_blank" rel="noopener">Av. de la Constitución, 25</a></li>
+      <li class="fila"><span>13620 Pedro Muñoz, Ciudad Real</span></li>
+      <li class="fila"><span>Desayunos L–V 9–16 h <i class="sep">·</i> Tardeos 18 h</span></li>
+      <li class="fila fila-cta"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Texako%2C+Av.+de+la+Constituci%C3%B3n+25%2C+13620+Pedro+Mu%C3%B1oz" target="_blank" rel="noopener"><span>¿Te vienes?</span><span class="redondo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></span></a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="pie-cols">
+    <div><img class="pie-logo" src="img/logo-texako.jpg" width="640" height="640" alt="Logo de Texako Gastro Bar, Pedro Muñoz" loading="lazy"><p class="f1">Texako Gastro Bar</p><p>Av. de la Constitución, 25</p><p>13620 Pedro Muñoz, Ciudad Real</p></div>
+    <div><p class="f1">En la página</p><p><a href="#tardeos">Tardeos</a></p><p><a href="#carta">La carta</a></p><p><a href="#clientes">Clientes</a></p></div>
+    <div><p class="f1">Síguenos</p><p><a href="https://www.instagram.com/texako.pm/" target="_blank" rel="noopener">Instagram @texako.pm</a></p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Texako+Pedro+Mu%C3%B1oz" target="_blank" rel="noopener">Google Maps</a></p></div>
+    <div><p class="f1">Horario</p><p>Desayunos de lunes a viernes, 9 a 16 h</p><p>Tardeos desde las 18 h</p></div>
+  </div>
+  <div class="pie-word" aria-hidden="true">
+    <svg viewBox="0 0 1000 190" preserveAspectRatio="xMidYMax meet"><text x="500" y="182" text-anchor="middle" textLength="992" lengthAdjust="spacingAndGlyphs">TEXAKO</text></svg>
+  </div>
+  <p class="legal">© Texako Gastro Bar · Pedro Muñoz · Fotos: @texako.pm</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
