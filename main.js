@@ -92,8 +92,7 @@
 
   // Entrada del monumento: las letras suben desde el borde, una a una
   const mono = document.querySelector('.monument-inner');
-  const isPhone = window.matchMedia('(max-width: 700px)').matches;
-  gsap.from(mono, { yPercent: isPhone ? 0 : 22, xPercent: isPhone ? -12 : 0, duration: 1.0, ease });
+  gsap.from(mono, { yPercent: 22, duration: 1.0, ease });
 
   // Firma: el nombre pesa — se encoge un poco y se hunde al salir de la primera pantalla
   gsap.to('.monument', {
